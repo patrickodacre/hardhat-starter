@@ -1,4 +1,4 @@
-const { expect } = require("chai");
+const { assert } = require("chai");
 
 describe("Greeter", function() {
   it("Should return the new greeting once it's changed", async function() {
@@ -6,9 +6,9 @@ describe("Greeter", function() {
     const greeter = await Greeter.deploy("Hello, world!");
     
     await greeter.deployed();
-    expect(await greeter.greet()).to.equal("Hello, world!");
+    assert(await greeter.greet() === "Hello, world!")
 
     await greeter.setGreeting("Hola, mundo!");
-    expect(await greeter.greet()).to.equal("Hola, mundo!");
+    assert(await greeter.greet() === "Hola, mundo!")
   });
 });
